@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sharebible/screens/Bible/bible_screen.dart';
+import 'package:sharebible/screens/Home/home_screen.dart';
+import 'package:sharebible/screens/Settings/setting_screen.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -11,9 +14,9 @@ class _LandingPageState extends State<LandingPage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    const HomePage(),
-    const BiblePage(),
-    const SettingsPage(),
+    const HomeScreen(),
+    const BibleScreen(),
+    const SettingScreen(),
   ];
 
   @override
