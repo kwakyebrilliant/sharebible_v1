@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sharebible/component/landing_page.dart';
 import 'package:sharebible/theme/dark_mode.dart';
 import 'package:sharebible/theme/light_mode.dart';
 import 'package:sharebible/theme/theme_notifier.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
+      home: LandingPage(),
       darkTheme: darkMode,
       theme: lightMode,
       themeMode:
