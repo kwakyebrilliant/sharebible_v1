@@ -25,9 +25,7 @@ class _LandingPageState extends State<LandingPage> {
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          border: Border(
-            top: BorderSide(color: Theme.of(context).colorScheme.primary),
-          ),
+          border: Border(top: BorderSide(color: Colors.blueGrey)),
         ),
         child: BottomNavigationBar(
           currentIndex: _currentIndex,
@@ -36,29 +34,26 @@ class _LandingPageState extends State<LandingPage> {
               _currentIndex = index;
             });
           },
-          selectedItemColor: Colors.blueGrey, // Color for selected item
-          unselectedItemColor:
-              Theme.of(
-                context,
-              ).colorScheme.inversePrimary, // Color for unselected items
-          showSelectedLabels: false, // Hide selected labels
-          showUnselectedLabels: false, // Hide unselected labels
+          selectedItemColor: Colors.blueGrey,
+          unselectedItemColor: Theme.of(context).colorScheme.inversePrimary,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
               icon: Container(
-                padding: const EdgeInsets.all(8.0), // Add padding
+                padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                   color:
                       _currentIndex == 0
-                          ? Theme.of(context).colorScheme.background
-                          : null, // White background for the selected item
+                          ? Theme.of(context).colorScheme.primaryContainer
+                          : null,
                   borderRadius: BorderRadius.circular(10.0),
                   boxShadow:
                       _currentIndex == 0
                           ? [
                             BoxShadow(
-                              color: Colors.white.withOpacity(0.2),
+                              color: Colors.white.withValues(alpha: 0.2),
                               blurRadius: 8,
                             ),
                           ]
@@ -74,14 +69,14 @@ class _LandingPageState extends State<LandingPage> {
                 decoration: BoxDecoration(
                   color:
                       _currentIndex == 1
-                          ? Theme.of(context).colorScheme.background
-                          : null, // White background for the selected item
+                          ? Theme.of(context).colorScheme.primaryContainer
+                          : null,
                   borderRadius: BorderRadius.circular(10.0),
                   boxShadow:
                       _currentIndex == 1
                           ? [
                             BoxShadow(
-                              color: Colors.white.withOpacity(0.2),
+                              color: Colors.white.withValues(alpha: 0.2),
                               blurRadius: 8,
                             ),
                           ]
@@ -97,14 +92,14 @@ class _LandingPageState extends State<LandingPage> {
                 decoration: BoxDecoration(
                   color:
                       _currentIndex == 2
-                          ? Theme.of(context).colorScheme.background
-                          : null, // White background for the selected item
+                          ? Theme.of(context).colorScheme.primaryContainer
+                          : null,
                   borderRadius: BorderRadius.circular(10.0),
                   boxShadow:
                       _currentIndex == 2
                           ? [
                             BoxShadow(
-                              color: Colors.white.withOpacity(0.2),
+                              color: Colors.white.withValues(alpha: 0.2),
                               blurRadius: 8,
                             ),
                           ]
