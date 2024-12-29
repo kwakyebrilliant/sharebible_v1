@@ -40,8 +40,10 @@ class _SettingScreenState extends State<SettingScreen> {
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
+      // Customescrollview for all content
       body: CustomScrollView(
         slivers: [
+          // sliverappbar statrts here
           SliverAppBar(
             backgroundColor: Theme.of(context).colorScheme.surface,
             expandedHeight: 140.0,
@@ -94,6 +96,18 @@ class _SettingScreenState extends State<SettingScreen> {
                 "assets/images/wall.png",
                 fit: BoxFit.cover,
               ),
+            ),
+          ),
+
+          // sliverappbar statrts ends
+
+          // SliverToBoxAdapter statrts ends
+          // contains all other contents
+          SliverToBoxAdapter(
+            // Column for all contents
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [],
             ),
           ),
         ],
