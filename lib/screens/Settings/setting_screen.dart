@@ -107,7 +107,59 @@ class _SettingScreenState extends State<SettingScreen> {
             // Column for all contents
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [],
+              children: [
+                // Padding around search
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+
+                  // Container wrapping search
+                  child: Container(
+                    height: 50.0,
+                    width: MediaQuery.of(context).size.width - 30.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: Theme.of(context).colorScheme.surface,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.inversePrimary.withValues(alpha: 0.1),
+                          spreadRadius: 2,
+                          blurRadius: 7,
+                          offset: const Offset(0, 1),
+                        ),
+                      ],
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        hintText: 'Search',
+                        contentPadding: const EdgeInsets.all(10.0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide.none,
+                        ),
+                        fillColor:
+                            Theme.of(context).colorScheme.primaryContainer,
+                        prefixIcon: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Icon(
+                            Icons.search_rounded,
+                            color: Theme.of(context).colorScheme.inversePrimary,
+                          ),
+                        ),
+                        prefixIconConstraints: const BoxConstraints(
+                          maxHeight: 20.0,
+                          maxWidth: 40.0,
+                        ),
+                      ),
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
