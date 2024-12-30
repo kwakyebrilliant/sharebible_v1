@@ -222,6 +222,279 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                 ),
 
+                //Share, About, FAQ and Help here
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                    child: Column(
+                      children: [
+                        //Share here
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).colorScheme.primaryContainer,
+                                width: 1.0,
+                              ),
+                            ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 20.0,
+                                          right: 10.0,
+                                        ),
+                                        child: Container(
+                                          height: 35.0,
+                                          width: 35.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.cyan,
+                                            borderRadius: BorderRadius.circular(
+                                              7.0,
+                                            ),
+                                          ),
+                                          child: const Icon(
+                                            Icons.share_rounded,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                      const Text(
+                                        'Share ShareBible',
+                                        style: TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Icon(
+                                    Icons.arrow_right_rounded,
+                                    size: 50.0,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).colorScheme.inversePrimary,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        //About here
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).colorScheme.primaryContainer,
+                                width: 1.0,
+                              ),
+                            ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 20.0,
+                                          right: 10.0,
+                                        ),
+                                        child: Container(
+                                          height: 35.0,
+                                          width: 35.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.orange,
+                                            borderRadius: BorderRadius.circular(
+                                              7.0,
+                                            ),
+                                          ),
+                                          child: const Icon(
+                                            Icons.info_rounded,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                      const Text(
+                                        'About',
+                                        style: TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Icon(
+                                    Icons.arrow_right_rounded,
+                                    size: 50.0,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).colorScheme.inversePrimary,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        // FAQs here
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).colorScheme.primaryContainer,
+                                width: 1.0,
+                              ),
+                            ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 20.0,
+                                          right: 10.0,
+                                        ),
+                                        child: Container(
+                                          height: 35.0,
+                                          width: 35.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.teal,
+                                            borderRadius: BorderRadius.circular(
+                                              7.0,
+                                            ),
+                                          ),
+                                          child: const Icon(
+                                            Icons.question_answer_rounded,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                      const Text(
+                                        'FAQs',
+                                        style: TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Icon(
+                                    Icons.arrow_right_rounded,
+                                    size: 50.0,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).colorScheme.inversePrimary,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        //Help here
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).colorScheme.primaryContainer,
+                                width: 1.0,
+                              ),
+                            ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 20.0,
+                                          right: 10.0,
+                                        ),
+                                        child: Container(
+                                          height: 35.0,
+                                          width: 35.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.grey,
+                                            borderRadius: BorderRadius.circular(
+                                              7.0,
+                                            ),
+                                          ),
+                                          child: const Icon(
+                                            Icons.help_rounded,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                      const Text(
+                                        'Help',
+                                        style: TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Icon(
+                                    Icons.arrow_right_rounded,
+                                    size: 50.0,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).colorScheme.inversePrimary,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
                 //Theme and logout padding here
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
