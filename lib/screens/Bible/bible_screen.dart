@@ -165,6 +165,131 @@ class _BibleScreenState extends State<BibleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold();
   }
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
+}
+
+class BibleChaptersVersesScreen extends StatelessWidget {
+  final String? selectedBook;
+  final String selectedVersion;
+
+  const BibleChaptersVersesScreen(
+    this.selectedBook,
+    this.selectedVersion, {
+    super.key,
+  });
+
+  Future<String> loadJsonData() async {
+    // Load JSON data for the selected version
+    String assetPath = 'assets/bibles/kjv.json';
+    if (selectedVersion == 'ASV') {
+      assetPath = 'assets/bibles/asv.json';
+    } else if (selectedVersion == 'WEB') {
+      assetPath = 'assets/bibles/web.json';
+    } else if (selectedVersion == 'NET') {
+      assetPath = 'assets/bibles/net.json';
+    }
+
+    return await rootBundle.loadString(assetPath);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+          child: Icon(
+            Icons.arrow_left_rounded,
+            color: Theme.of(context).colorScheme.inversePrimary,
+            size: 50.0,
+          ),
+        ),
+        title: Text(
+          '$selectedVersion - $selectedBook',
+          style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+        ),
+        elevation: 0,
+      ),
+      body: FutureBuilder<String>(
+        future: loadJsonData(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            // Loading indicator
+            return const CircularProgressIndicator();
+          } else if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          } else if (!snapshot.hasData) {
+            return const Text('No data available.');
+          } else {
+            final jsonData = json.decode(snapshot.data!);
+            final verses = jsonData['verses'];
+
+            // Filter chapters based on the selected book
+            final List<int> chapters = [];
+            for (var verse in verses) {
+              if (verse['book_name'] == selectedBook) {
+                final chapter = verse['chapter'];
+                if (!chapters.contains(chapter)) {
+                  chapters.add(chapter);
+                }
+              }
+            }
+
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView.builder(
+                itemCount: chapters.length,
+                itemBuilder: (context, index) {
+                  final chapterNumber = chapters[index];
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Card(
+                      child: ListTile(
+                        title: Text('Chapter $chapterNumber'),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder:
+                                  (context) => BibleVersesScreen(
+                                    selectedBook!,
+                                    chapterNumber,
+                                    verses,
+                                  ),
+                            ),
+                          );
+                        },
+                        trailing: Icon(
+                          Icons.arrow_right_rounded,
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            );
+          }
+        },
+      ),
+    );
+  }
+}
+
+class HighlightedVerse {
+  final String text;
+  final int verseNumber;
+  final Color color;
+
+  HighlightedVerse(this.text, this.verseNumber, this.color);
 }
