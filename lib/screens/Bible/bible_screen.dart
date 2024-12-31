@@ -303,7 +303,7 @@ class _BibleScreenState extends State<BibleScreen> {
               child: TextField(
                 decoration: InputDecoration(
                   filled: true,
-                  hintText: 'Find bible...',
+                  hintText: 'Find book...',
                   contentPadding: const EdgeInsets.all(10.0),
                   border: InputBorder.none,
                   fillColor: Theme.of(context).colorScheme.secondary,
@@ -336,7 +336,7 @@ class _BibleScreenState extends State<BibleScreen> {
               child: Icon(
                 Icons.person,
                 size: 40.0,
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.surface,
               ),
             ),
           ],
