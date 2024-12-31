@@ -27,7 +27,9 @@ class _LandingPageState extends State<LandingPage> {
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          border: Border(top: BorderSide(color: Colors.blueGrey)),
+          border: Border(
+            top: BorderSide(color: Theme.of(context).colorScheme.secondary),
+          ),
         ),
         child: BottomNavigationBar(
           currentIndex: _currentIndex,
