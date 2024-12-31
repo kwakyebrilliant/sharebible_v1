@@ -99,17 +99,21 @@ class _SettingScreenState extends State<SettingScreen> {
 
                     // Container for logout icon
                     Container(
-                      height: 35.0,
-                      width: 35.0,
+                      height: 25.0,
+                      width: 25.0,
                       decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(7.0),
                       ),
 
                       // Logout icon
-                      child: const Icon(
-                        Icons.logout_rounded,
-                        color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(3.0),
+                        child: const Icon(
+                          Icons.logout_rounded,
+                          color: Colors.white,
+                          size: 20.0,
+                        ),
                       ),
                     ),
                   ],
