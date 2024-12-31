@@ -55,38 +55,61 @@ class _SettingScreenState extends State<SettingScreen> {
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               title: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.blueGrey,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(3.0),
-                        child: Icon(
-                          Icons.person,
-                          size: 25.0,
-                          color: Theme.of(context).colorScheme.inversePrimary,
+                    Row(
+                      children: [
+                        Container(
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.blueGrey,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: Icon(
+                              Icons.person,
+                              size: 25.0,
+                              color:
+                                  Theme.of(context).colorScheme.inversePrimary,
+                            ),
+                          ),
                         ),
-                      ),
+
+                        const SizedBox(width: 5.0),
+
+                        //user first name here
+                        Container(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.surface.withValues(alpha: 0.7),
+                          child: Text(
+                            'amoah',
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                              color:
+                                  Theme.of(context).colorScheme.inversePrimary,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
 
-                    const SizedBox(width: 5.0),
-
-                    //user first name here
+                    // Containefr for logout icon
                     Container(
-                      color: Theme.of(
-                        context,
-                      ).colorScheme.surface.withValues(alpha: 0.7),
-                      child: Text(
-                        'amoah',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.inversePrimary,
-                        ),
+                      height: 35.0,
+                      width: 35.0,
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(7.0),
+                      ),
+
+                      // Logout icon
+                      child: const Icon(
+                        Icons.logout_rounded,
+                        color: Colors.white,
                       ),
                     ),
                   ],
