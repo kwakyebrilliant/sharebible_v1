@@ -248,6 +248,214 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                 ),
 
+                //Note, Notifications and Bookmarks here
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                    child: Column(
+                      children: [
+                        //Notes here
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).colorScheme.primaryContainer,
+                                width: 1.0,
+                              ),
+                            ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 20.0,
+                                          right: 10.0,
+                                        ),
+                                        child: Container(
+                                          height: 35.0,
+                                          width: 35.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.brown,
+                                            borderRadius: BorderRadius.circular(
+                                              7.0,
+                                            ),
+                                          ),
+                                          child: const Icon(
+                                            Icons.note,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                      const Text(
+                                        'Notes',
+                                        style: TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Icon(
+                                    Icons.arrow_right_rounded,
+                                    size: 50.0,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).colorScheme.inversePrimary,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        //Notifications here
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).colorScheme.primaryContainer,
+                                width: 1.0,
+                              ),
+                            ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 20.0,
+                                          right: 10.0,
+                                        ),
+                                        child: Container(
+                                          height: 35.0,
+                                          width: 35.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.purple,
+                                            borderRadius: BorderRadius.circular(
+                                              7.0,
+                                            ),
+                                          ),
+                                          child: const Icon(
+                                            Icons.edit_notifications_rounded,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                      const Text(
+                                        'Notifications',
+                                        style: TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Icon(
+                                    Icons.arrow_right_rounded,
+                                    size: 50.0,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).colorScheme.inversePrimary,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        //Bookmarks here
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).colorScheme.primaryContainer,
+                                width: 1.0,
+                              ),
+                            ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 20.0,
+                                          right: 10.0,
+                                        ),
+                                        child: Container(
+                                          height: 35.0,
+                                          width: 35.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.blueGrey,
+                                            borderRadius: BorderRadius.circular(
+                                              7.0,
+                                            ),
+                                          ),
+                                          child: const Icon(
+                                            Icons.bookmarks_rounded,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                      const Text(
+                                        'Bookmarks',
+                                        style: TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Icon(
+                                    Icons.arrow_right_rounded,
+                                    size: 50.0,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).colorScheme.inversePrimary,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
                 //Share, About, FAQ and Help here
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
