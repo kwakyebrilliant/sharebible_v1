@@ -71,8 +71,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             child: Icon(
                               Icons.person,
                               size: 25.0,
-                              color:
-                                  Theme.of(context).colorScheme.inversePrimary,
+                              color: Theme.of(context).colorScheme.surface,
                             ),
                           ),
                         ),
