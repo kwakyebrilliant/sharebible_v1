@@ -335,7 +335,7 @@ class _BibleScreenState extends State<BibleScreen> {
               ),
               child: Icon(
                 Icons.person,
-                size: 40.0,
+                size: 35.0,
                 color: Theme.of(context).colorScheme.surface,
               ),
             ),
