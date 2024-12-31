@@ -97,7 +97,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       ],
                     ),
 
-                    // Containefr for logout icon
+                    // Container for logout icon
                     Container(
                       height: 35.0,
                       width: 35.0,
@@ -522,7 +522,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
 
-                  // Container for Theme and logout
+                  // Container for Theme
                   child: Container(
                     decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.surface,
@@ -530,123 +530,56 @@ class _SettingScreenState extends State<SettingScreen> {
                     child: Column(
                       children: [
                         //Theme container here
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color:
-                                    Theme.of(
-                                      context,
-                                    ).colorScheme.primaryContainer,
-                                width: 1.0,
-                              ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        left: 20.0,
+                                        right: 10.0,
+                                      ),
+                                      child: Container(
+                                        height: 35.0,
+                                        width: 35.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: BorderRadius.circular(
+                                            7.0,
+                                          ),
+                                        ),
+                                        child: const Icon(
+                                          Icons.dark_mode_rounded,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                    const Text(
+                                      'Theme',
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Switch(
+                                  value: isDarkMode,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      isDarkMode = value;
+                                      saveSwitchState();
+                                      themeNotifier.toggleTheme();
+                                    });
+                                  },
+                                ),
+                              ],
                             ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Row(
-                                    children: <Widget>[
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 20.0,
-                                          right: 10.0,
-                                        ),
-                                        child: Container(
-                                          height: 35.0,
-                                          width: 35.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.black,
-                                            borderRadius: BorderRadius.circular(
-                                              7.0,
-                                            ),
-                                          ),
-                                          child: const Icon(
-                                            Icons.dark_mode_rounded,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                      const Text(
-                                        'Theme',
-                                        style: TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Switch(
-                                    value: isDarkMode,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        isDarkMode = value;
-                                        saveSwitchState();
-                                        themeNotifier.toggleTheme();
-                                      });
-                                    },
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-
-                        // Padding around logout here
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Row(
-                                    children: <Widget>[
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 20.0,
-                                          right: 10.0,
-                                        ),
-
-                                        // Containefr for logout icon
-                                        child: Container(
-                                          height: 35.0,
-                                          width: 35.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.red,
-                                            borderRadius: BorderRadius.circular(
-                                              7.0,
-                                            ),
-                                          ),
-
-                                          // Logout icon
-                                          child: const Icon(
-                                            Icons.logout_rounded,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-
-                                      // Logout text
-                                      const Text(
-                                        'Logout',
-                                        style: TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                          ],
                         ),
                       ],
                     ),
