@@ -293,3 +293,19 @@ class HighlightedVerse {
 
   HighlightedVerse(this.text, this.verseNumber, this.color);
 }
+
+class BibleVersesScreen extends StatefulWidget {
+  final String selectedBook;
+  final int selectedChapter;
+  final List<dynamic> verses;
+
+  const BibleVersesScreen(
+    this.selectedBook,
+    this.selectedChapter,
+    this.verses, {
+    super.key,
+  });
+
+  @override
+  State<BibleVersesScreen> createState() => _BibleVersesScreenState();
+}
