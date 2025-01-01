@@ -13,7 +13,19 @@ class _NotificationScreenState extends State<NotificationScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       // Customescrollview for all content
-      body: CustomScrollView(),
+      body: CustomScrollView(
+        slivers: [
+          // sliverappbar statrts here
+          SliverAppBar(
+            backgroundColor: Theme.of(context).colorScheme.surface,
+
+            // Title starts here
+            title: Padding(
+              padding: const EdgeInsets.only(bottom: 5.0, top: 10.0),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
