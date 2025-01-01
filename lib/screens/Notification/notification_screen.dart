@@ -75,6 +75,11 @@ class _NotificationScreenState extends State<NotificationScreen> {
             toolbarHeight: 55.0,
             pinned: true,
           ),
+          // sliverappbar ends here
+
+          // SliverToBoxAdapter starts here
+          // contains all other contents
+          SliverToBoxAdapter(child: Column(children: [])),
         ],
       ),
     );
