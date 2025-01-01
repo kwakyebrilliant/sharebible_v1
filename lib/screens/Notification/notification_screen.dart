@@ -15,13 +15,15 @@ class _NotificationScreenState extends State<NotificationScreen> {
       // Customescrollview for all content
       body: CustomScrollView(
         slivers: [
-          // sliverappbar statrts here
+          // sliverappbar starts here
           SliverAppBar(
             backgroundColor: Theme.of(context).colorScheme.surface,
 
             // Title starts here
             title: Padding(
               padding: const EdgeInsets.only(bottom: 5.0, top: 10.0),
+
+              // Row for circleavatar and settings icon
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
