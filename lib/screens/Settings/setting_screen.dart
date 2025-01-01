@@ -62,16 +62,27 @@ class _SettingScreenState extends State<SettingScreen> {
                     Row(
                       children: [
                         Container(
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.blueGrey,
+                          decoration: BoxDecoration(
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.inversePrimary.withValues(alpha: 0.2),
+                            borderRadius: BorderRadius.circular(100.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(3.0),
-                            child: Icon(
-                              Icons.person,
-                              size: 25.0,
-                              color: Theme.of(context).colorScheme.surface,
+                            padding: const EdgeInsets.all(7.0),
+                            // CircleAvatar for the profile
+                            child:
+                            //displays user's profile image
+                            Container(
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.blueGrey,
+                              ),
+                              child: Icon(
+                                Icons.person,
+                                size: 25.0,
+                                color: Theme.of(context).colorScheme.surface,
+                              ),
                             ),
                           ),
                         ),
