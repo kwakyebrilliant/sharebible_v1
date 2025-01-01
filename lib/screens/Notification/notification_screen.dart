@@ -81,7 +81,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
 
           // SliverToBoxAdapter starts here
           // contains all other contents
-          SliverToBoxAdapter(child: Column(children: [])),
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+
+          ]),
+          ),
         ],
       ),
     );
