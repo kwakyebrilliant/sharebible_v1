@@ -135,9 +135,9 @@ class _SettingScreenState extends State<SettingScreen> {
               ),
             ),
           ),
-          // sliverappbar statrts ends
+          // sliverappbar ends here
 
-          // SliverToBoxAdapter statrts ends
+          // SliverToBoxAdapter starts here
           // contains all other contents
           SliverToBoxAdapter(
             // Column for all contents
