@@ -55,11 +55,25 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     ),
                   ),
 
-                  // Select icon
-                  const Icon(Icons.select_all, size: 18.0),
+                  // settings icon
+                  const Icon(Icons.settings_outlined, size: 18.0),
                 ],
               ),
             ),
+            flexibleSpace: FlexibleSpaceBar(
+              centerTitle: true,
+              // Notifications text
+              title: Text(
+                'Notifications',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+            ),
+            floating: true,
+            snap: true,
+            expandedHeight: 100.0,
+            collapsedHeight: 55.0,
+            toolbarHeight: 55.0,
+            pinned: true,
           ),
         ],
       ),
