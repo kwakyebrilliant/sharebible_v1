@@ -85,7 +85,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //Padding around notiification list
+                //Padding around notiification list 1
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
                   child: Container(
@@ -97,6 +97,29 @@ class _NotificationScreenState extends State<NotificationScreen> {
                         ),
                       ),
                       color: Theme.of(context).colorScheme.surface,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20.0,
+                                right: 10.0,
+                                bottom: 10.0,
+                              ),
+                              child: Icon(
+                                Icons.menu_book_rounded,
+                                color: Colors.pink,
+                                size: 28.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
