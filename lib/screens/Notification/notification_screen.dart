@@ -85,7 +85,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
+                
           ]),
           ),
         ],
