@@ -85,8 +85,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
-          ]),
+                //Padding around notiification list
+                Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: Container(decoration: BoxDecoration()),
+                ),
+              ],
+            ),
           ),
         ],
       ),
