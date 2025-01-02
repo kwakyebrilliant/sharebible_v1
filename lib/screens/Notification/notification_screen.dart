@@ -99,25 +99,35 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       color: Theme.of(context).colorScheme.surface,
                     ),
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 20.0,
+                            right: 10.0,
+                            bottom: 10.0,
+                          ),
+                          child: Icon(
+                            Icons.menu_book_rounded,
+                            color: Colors.pink,
+                            size: 28.0,
+                          ),
+                        ),
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 20.0,
-                                right: 10.0,
-                                bottom: 10.0,
-                              ),
-                              child: Icon(
-                                Icons.menu_book_rounded,
-                                color: Colors.pink,
-                                size: 28.0,
+                            Text(
+                              '9:12 am',
+                              style: TextStyle(
+                                fontSize: 10.0,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.blueGrey,
                               ),
                             ),
                             const Text(
                               'Account',
                               style: TextStyle(
-                                fontSize: 20.0,
+                                fontSize: 12.0,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
