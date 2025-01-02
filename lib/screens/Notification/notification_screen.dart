@@ -98,12 +98,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       ),
                       color: Theme.of(context).colorScheme.surface,
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                    child: Row(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Column(
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(
@@ -115,6 +112,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 Icons.menu_book_rounded,
                                 color: Colors.pink,
                                 size: 28.0,
+                              ),
+                            ),
+                            const Text(
+                              'Account',
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
                           ],
