@@ -88,7 +88,17 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 //Padding around notiification list
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
-                  child: Container(decoration: BoxDecoration()),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Theme.of(context).colorScheme.primaryContainer,
+                          width: 1.0,
+                        ),
+                      ),
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                  ),
                 ),
               ],
             ),
