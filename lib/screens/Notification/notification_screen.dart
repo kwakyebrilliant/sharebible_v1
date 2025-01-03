@@ -99,7 +99,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   ),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment:
+                        MainAxisAlignment.start, // Keep this as start
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(
@@ -113,44 +114,51 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           size: 28.0,
                         ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Exodus 1:12',
-                            style: TextStyle(
-                              fontSize: 10.0,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.blueGrey,
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(3.0),
-                            width: MediaQuery.of(context).size.width - 100.0,
-                            child: const Text(
-                              'Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
+                      Expanded(
+                        // Use Expanded to fill available space
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Exodus 1:12',
                               style: TextStyle(
-                                fontSize: 12.0,
-                                fontWeight: FontWeight.w400,
+                                fontSize: 10.0,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.blueGrey,
                               ),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
                             ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                '9:12 am',
+                            Container(
+                              padding: const EdgeInsets.all(3.0),
+                              width: MediaQuery.of(context).size.width - 100.0,
+                              child: const Text(
+                                'Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
                                 style: TextStyle(
-                                  fontSize: 8.0,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.blueGrey,
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            // Add time text here
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4.0),
+                              // Add some spacing above
+                              child: Align(
+                                // Align to the right
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  '9:12 am',
+                                  style: TextStyle(
+                                    fontSize: 8.0,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.blueGrey,
+                                  ),
                                 ),
                               ),
-                            ],
-                          ),
-                        ],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
