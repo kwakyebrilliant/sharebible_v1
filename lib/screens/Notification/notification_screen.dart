@@ -89,7 +89,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
                   child: Container(
-                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.only(bottom: 8.0),
                     decoration: BoxDecoration(
                       border: Border(
                         bottom: BorderSide(
@@ -126,11 +126,17 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 color: Colors.blueGrey,
                               ),
                             ),
-                            const Text(
-                              'Account',
-                              style: TextStyle(
-                                fontSize: 12.0,
-                                fontWeight: FontWeight.w700,
+                            Container(
+                              padding: const EdgeInsets.all(3.0),
+                              width: MediaQuery.of(context).size.width - 100.0,
+                              child: const Text(
+                                'Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                             Row(
