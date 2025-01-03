@@ -85,77 +85,74 @@ class _NotificationScreenState extends State<NotificationScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //Padding around notiification list 1
-                Padding(
-                  padding: EdgeInsets.only(top: 8.0),
-                  child: Container(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          color: Theme.of(context).colorScheme.primaryContainer,
-                          width: 1.0,
+                //Container around notiification list 1
+                Container(
+                  padding: const EdgeInsets.only(bottom: 8.0, top: 8.0),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Theme.of(context).colorScheme.primaryContainer,
+                        width: 1.0,
+                      ),
+                    ),
+                    color: Theme.of(context).colorScheme.surface,
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 20.0,
+                          right: 10.0,
+                          bottom: 10.0,
+                        ),
+                        child: Icon(
+                          Icons.menu_book_rounded,
+                          color: Colors.pink,
+                          size: 28.0,
                         ),
                       ),
-                      color: Theme.of(context).colorScheme.surface,
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 20.0,
-                            right: 10.0,
-                            bottom: 10.0,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Exodus 1:12',
+                            style: TextStyle(
+                              fontSize: 10.0,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.blueGrey,
+                            ),
                           ),
-                          child: Icon(
-                            Icons.menu_book_rounded,
-                            color: Colors.pink,
-                            size: 28.0,
-                          ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Exodus 1:12',
+                          Container(
+                            padding: const EdgeInsets.all(3.0),
+                            width: MediaQuery.of(context).size.width - 100.0,
+                            child: const Text(
+                              'Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
                               style: TextStyle(
-                                fontSize: 10.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.blueGrey,
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w400,
                               ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            Container(
-                              padding: const EdgeInsets.all(3.0),
-                              width: MediaQuery.of(context).size.width - 100.0,
-                              child: const Text(
-                                'Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                '9:12 am',
                                 style: TextStyle(
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.w400,
+                                  fontSize: 8.0,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.blueGrey,
                                 ),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  '9:12 am',
-                                  style: TextStyle(
-                                    fontSize: 8.0,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.blueGrey,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ],
