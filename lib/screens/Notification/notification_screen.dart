@@ -145,7 +145,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 Text(
                                   '9:12 am',
                                   style: TextStyle(
-                                    fontSize: 10.0,
+                                    fontSize: 8.0,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.blueGrey,
                                   ),
