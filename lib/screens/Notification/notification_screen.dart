@@ -89,6 +89,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
                   child: Container(
+                    width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       border: Border(
                         bottom: BorderSide(
@@ -100,6 +101,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
@@ -117,7 +119,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '9:12 am',
+                              'Exodus 1:12',
                               style: TextStyle(
                                 fontSize: 10.0,
                                 fontWeight: FontWeight.w700,
@@ -130,6 +132,19 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 fontSize: 12.0,
                                 fontWeight: FontWeight.w700,
                               ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  '9:12 am',
+                                  style: TextStyle(
+                                    fontSize: 10.0,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.blueGrey,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
