@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
@@ -67,7 +68,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
               // Notifications text
               title: Text(
                 'Notifications',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                style: GoogleFonts.inter(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             floating: true,
