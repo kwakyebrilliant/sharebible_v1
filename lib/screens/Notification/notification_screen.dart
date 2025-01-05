@@ -125,9 +125,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           children: [
                             Text(
                               'Exodus 1:12',
-                              style: TextStyle(
+                              style: GoogleFonts.inter(
                                 fontSize: 10.0,
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w600,
                                 color: Colors.blueGrey,
                               ),
                             ),
