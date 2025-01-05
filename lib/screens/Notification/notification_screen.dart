@@ -119,7 +119,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                         ),
                       ),
                       Expanded(
-                        // Use Expanded to fill available space
+                        // Uses Expanded to fill available space
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -200,7 +200,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                         ),
                       ),
                       Expanded(
-                        // Use Expanded to fill available space
+                        // Uses Expanded to fill available space
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
