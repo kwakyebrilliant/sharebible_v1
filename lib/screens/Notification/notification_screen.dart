@@ -185,8 +185,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   ),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment:
-                        MainAxisAlignment.start, // Keep this as start
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(
@@ -195,8 +194,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           bottom: 10.0,
                         ),
                         child: Icon(
-                          Icons.menu_book_rounded,
-                          color: Colors.pink,
+                          Icons.info_rounded,
+                          color: Colors.orange,
                           size: 28.0,
                         ),
                       ),
