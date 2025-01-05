@@ -118,8 +118,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           size: 28.0,
                         ),
                       ),
+
+                      // Uses Expanded to fill available space
                       Expanded(
-                        // Uses Expanded to fill available space
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
