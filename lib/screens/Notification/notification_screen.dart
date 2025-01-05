@@ -156,10 +156,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 // Time text
                                 child: Text(
                                   '9:12 am',
-                                  style: TextStyle(
+                                  style: GoogleFonts.inter(
                                     fontSize: 8.0,
                                     fontWeight: FontWeight.w700,
-                                    color: Colors.blueGrey,
+                                    color: Colors.grey,
                                   ),
                                 ),
                               ),
