@@ -134,9 +134,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             Container(
                               padding: const EdgeInsets.all(3.0),
                               width: MediaQuery.of(context).size.width - 100.0,
-                              child: const Text(
+                              child: Text(
                                 'Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
-                                style: TextStyle(
+                                style: GoogleFonts.inter(
                                   fontSize: 12.0,
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -144,13 +144,16 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                            // Add time text here
+
+                            // Add some spacing above
                             Padding(
                               padding: const EdgeInsets.only(top: 4.0),
-                              // Add some spacing above
+
+                              // Align to the right
                               child: Align(
-                                // Align to the right
                                 alignment: Alignment.centerRight,
+
+                                // Time text
                                 child: Text(
                                   '9:12 am',
                                   style: TextStyle(
