@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sharebible/component/landing_page.dart';
+import 'package:sharebible/auth/main_page.dart';
 import 'package:sharebible/firebase_options.dart';
 import 'package:sharebible/theme/dark_mode.dart';
 import 'package:sharebible/theme/light_mode.dart';
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LandingPage(),
+      home: MainPage(),
       darkTheme: darkMode,
       theme: lightMode,
       themeMode:
