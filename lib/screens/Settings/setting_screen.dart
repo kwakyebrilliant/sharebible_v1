@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sharebible/theme/theme_notifier.dart';
@@ -107,22 +108,29 @@ class _SettingScreenState extends State<SettingScreen> {
                       ],
                     ),
 
-                    // Container for logout icon
-                    Container(
-                      height: 25.0,
-                      width: 25.0,
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(7.0),
-                      ),
+                    // Container for logout icon wrapped in a GestureDetector
+                    GestureDetector(
+                      onTap: () {
+                        FirebaseAuth.instance.signOut();
+                      },
 
-                      // Logout icon
-                      child: Padding(
-                        padding: const EdgeInsets.all(3.0),
-                        child: const Icon(
-                          Icons.logout_rounded,
-                          color: Colors.white,
-                          size: 20.0,
+                      // Container for logout icon
+                      child: Container(
+                        height: 25.0,
+                        width: 25.0,
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(7.0),
+                        ),
+
+                        // Logout icon
+                        child: Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: const Icon(
+                            Icons.logout_rounded,
+                            color: Colors.white,
+                            size: 20.0,
+                          ),
                         ),
                       ),
                     ),
