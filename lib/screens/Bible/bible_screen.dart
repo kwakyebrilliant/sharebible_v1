@@ -587,7 +587,7 @@ class _BibleVersesScreenState extends State<BibleVersesScreen> {
             .toList();
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         title: Text(
           '${widget.selectedBook} Chapter ${widget.selectedChapter}',
