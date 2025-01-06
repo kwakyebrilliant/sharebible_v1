@@ -49,20 +49,20 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAq4w9N0dELLTAhAyzEGueVJ35gt7YWUCI',
-    appId: '1:607522825683:android:8e57e90fa246dc9c8f7b26',
-    messagingSenderId: '607522825683',
-    projectId: 'sharebible-45b81',
-    storageBucket: 'sharebible-45b81.firebasestorage.app',
-  );
+  // static const FirebaseOptions android = FirebaseOptions(
+  //   apiKey: 'AIzaSyAq4w9N0dELLTAhAyzEGueVJ35gt7YWUCI',
+  //   appId: '1:607522825683:android:8e57e90fa246dc9c8f7b26',
+  //   messagingSenderId: '607522825683',
+  //   projectId: 'sharebible-45b81',
+  //   storageBucket: 'sharebible-45b81.firebasestorage.app',
+  // );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAuhpnGGh88Puy2fs30u2OzCThaxvLgJcU',
-    appId: '1:607522825683:ios:5b57113178cf9c6b8f7b26',
-    messagingSenderId: '607522825683',
-    projectId: 'sharebible-45b81',
-    storageBucket: 'sharebible-45b81.firebasestorage.app',
-    iosBundleId: 'com.example.sharebible',
-  );
+  // static const FirebaseOptions ios = FirebaseOptions(
+  //   apiKey: 'AIzaSyAuhpnGGh88Puy2fs30u2OzCThaxvLgJcU',
+  //   appId: '1:607522825683:ios:5b57113178cf9c6b8f7b26',
+  //   messagingSenderId: '607522825683',
+  //   projectId: 'sharebible-45b81',
+  //   storageBucket: 'sharebible-45b81.firebasestorage.app',
+  //   iosBundleId: 'com.example.sharebible',
+  // );
 }
