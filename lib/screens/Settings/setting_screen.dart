@@ -148,21 +148,20 @@ class _SettingScreenState extends State<SettingScreen> {
                                       style: TextButton.styleFrom(
                                         backgroundColor: Colors.red,
                                       ),
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        // Sign out the user
+                                        FirebaseAuth.instance.signOut();
+
+                                        // Close the current dialog or screen
                                         Navigator.of(context).pop();
                                       },
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          FirebaseAuth.instance.signOut();
-                                        },
-                                        child: Text(
-                                          'Log Out',
-                                          style: GoogleFonts.inter(
-                                            color:
-                                                Theme.of(
-                                                  context,
-                                                ).colorScheme.inversePrimary,
-                                          ),
+                                      child: Text(
+                                        'Log Out',
+                                        style: GoogleFonts.inter(
+                                          color:
+                                              Theme.of(
+                                                context,
+                                              ).colorScheme.inversePrimary,
                                         ),
                                       ),
                                     ),
