@@ -44,46 +44,55 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
 
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
 
-          child: Column(
-            children: [
-              // First Expanded for sharebible text and logo
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 60.0),
-                  child: Text(
-                    'ShareBible',
-                    style: GoogleFonts.inter(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
+              child: Column(
+                children: [
+                  // First Expanded for sharebible text and logo
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 60.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.share),
+                          Text(
+                            'ShareBible',
+                            style: GoogleFonts.inter(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ),
 
-              // Second Expanded for other contents
-              Expanded(
-                flex: 8,
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      LargeButton(
-                        text: 'Sign In',
-                        function: () {
-                          navigateToLogIn(context);
-                        },
+                  // Second Expanded for other contents
+                  Expanded(
+                    flex: 8,
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          LargeButton(
+                            text: 'Sign In',
+                            function: () {
+                              navigateToLogIn(context);
+                            },
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
