@@ -1,6 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sharebible/users/login_page.dart';
 import 'package:sharebible/utility/buttons/large_button.dart';
 import 'package:sharebible/utility/textformfield/textformfield.dart';
 
@@ -21,14 +22,143 @@ class _RegisterPageState extends State<RegisterPage> {
   final _confirmpasswordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  // Navigate to login screen function
-  void navigateToLogIn(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => LoginPage(showRegisterPage: () {}),
-      ),
-    );
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _fullnameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmpasswordController.dispose();
+    super.dispose();
+  }
+
+  Future signUp() async {
+    if (passwordConfirmed()) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(child: CircularProgressIndicator());
+        },
+      );
+
+      try {
+        // Create user
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim(),
+        );
+
+        // Add user details
+        addUserDetails(
+          _usernameController.text.trim(),
+          _fullnameController.text.trim(),
+          _emailController.text.trim(),
+        );
+
+        // Registration successful, pop the loading circle
+        Navigator.of(context).pop();
+
+        // Registration successful, show an alert
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text("Registration Successful"),
+              content: const Text("You have been successfully registered."),
+              actions: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(
+                    "OK",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      } catch (e) {
+        // Show an alert for the error if needed
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text("Error"),
+              content: Text(e.toString()),
+              actions: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("OK"),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    } else {
+      // Passwords do not match, show an alert
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text("Passwords Do Not Match"),
+            content: const Text("Please make sure your passwords match."),
+            actions: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  "OK",
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+
+  Future addUserDetails(String userName, String fullName, String email) async {
+    try {
+      // Get the currently logged in user
+      User? user = FirebaseAuth.instance.currentUser;
+
+      // Check if a user is logged in
+      if (user != null) {
+        // Create a reference to the user's document in Firestore
+        DocumentReference userRef = FirebaseFirestore.instance
+            .collection('users')
+            .doc(user.uid);
+
+        // Set the user details
+        await userRef.set({
+          'user name': userName,
+          'full name': fullName,
+          'email': email,
+        });
+      }
+    } catch (e) {
+      print("Error saving user details: $e");
+    }
+  }
+
+  bool passwordConfirmed() {
+    if (_passwordController.text.trim() ==
+        _confirmpasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
@@ -47,17 +177,15 @@ class _RegisterPageState extends State<RegisterPage> {
             fit: BoxFit.cover,
           ),
         ),
-
         child: Stack(
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-
-              child: Column(
-                children: [
-                  // First Expanded for sharebible text and logo
-                  Expanded(
-                    child: Padding(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    // First Expanded for sharebible text and logo
+                    Padding(
                       padding: const EdgeInsets.only(top: 60.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -74,21 +202,16 @@ class _RegisterPageState extends State<RegisterPage> {
                         ],
                       ),
                     ),
-                  ),
 
-                  // Second Expanded for other contents
-                  Expanded(
-                    flex: 8,
-                    child: Form(
+                    // Sign-Up form and content
+                    Form(
                       key: _formKey,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Sign Up text here wrapped in a padding
+                          // Sign Up text
                           Padding(
                             padding: const EdgeInsets.only(top: 20.0),
-
-                            // Sign Up text here
                             child: Text(
                               'Sign Up.',
                               textAlign: TextAlign.center,
@@ -100,7 +223,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
 
-                          // Already have account text wrapped in a padding
+                          // Already have an account text
                           Padding(
                             padding: const EdgeInsets.only(top: 5.0),
                             child: Row(
@@ -114,8 +237,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ),
                                 GestureDetector(
                                   onTap: widget.showLoginPage,
-
-                                  // Login
                                   child: const Text(
                                     ' Login',
                                     style: TextStyle(
@@ -129,26 +250,23 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
 
-                          // Padding wrapped around container for register items
+                          // Form container
                           Padding(
                             padding: const EdgeInsets.only(top: 30.0),
-
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 20.0,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.blueGrey.withValues(alpha: 0.2),
+                                color: Colors.blueGrey.withOpacity(0.2),
                                 borderRadius: BorderRadius.circular(20.0),
                                 border: Border.all(
                                   width: 1.0,
                                   color: Colors.blueGrey,
                                 ),
                               ),
-
                               child: Column(
                                 children: [
-                                  // Username textformfield here
                                   MyTextFormField(
                                     labelText: '@username',
                                     icon: Icons.alternate_email_rounded,
@@ -161,8 +279,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                       return null;
                                     },
                                   ),
-
-                                  // Fullname textformfield here
                                   MyTextFormField(
                                     labelText: 'Full name',
                                     icon: Icons.person_rounded,
@@ -175,8 +291,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                       return null;
                                     },
                                   ),
-
-                                  // Email textformfield here
                                   MyTextFormField(
                                     labelText: 'Email Address',
                                     icon: Icons.email_outlined,
@@ -189,8 +303,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                       return null;
                                     },
                                   ),
-
-                                  // Password textformfield here
                                   MyTextFormField(
                                     labelText: 'Password',
                                     icon: Icons.lock_outline,
@@ -204,8 +316,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                       return null;
                                     },
                                   ),
-
-                                  // Confirm Password textformfield here
                                   MyTextFormField(
                                     labelText: 'Confirm Password',
                                     icon: Icons.password_rounded,
@@ -219,13 +329,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                       return null;
                                     },
                                   ),
-
                                   Padding(
                                     padding: const EdgeInsets.only(top: 30.0),
                                     child: Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-
                                       children: [
                                         RichText(
                                           textAlign: TextAlign.center,
@@ -254,7 +362,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                                   color: Colors.blueGrey,
                                                 ),
                                               ),
-
                                               TextSpan(
                                                 text: 'and ',
                                                 style: GoogleFonts.inter(
@@ -266,7 +373,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                                       ).colorScheme.primary,
                                                 ),
                                               ),
-
                                               TextSpan(
                                                 text: 'Privacy Policy',
                                                 style: GoogleFonts.inter(
@@ -281,14 +387,17 @@ class _RegisterPageState extends State<RegisterPage> {
                                       ],
                                     ),
                                   ),
-
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                       vertical: 30.0,
                                     ),
                                     child: LargeButton(
                                       text: 'Sign up',
-                                      function: () {},
+                                      function: () {
+                                        if (_formKey.currentState!.validate()) {
+                                          signUp();
+                                        }
+                                      },
                                     ),
                                   ),
                                 ],
@@ -298,8 +407,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         ],
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
