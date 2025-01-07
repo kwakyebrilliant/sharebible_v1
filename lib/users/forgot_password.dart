@@ -43,15 +43,19 @@ class _ForgotPaawordState extends State<ForgotPaaword> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: const Text('Success Message'),
-            content: const Text('Password reset link sent'),
+            title: const Text(textAlign: TextAlign.center, 'Success Message'),
+            content: const Text(
+              textAlign: TextAlign.center,
+              'Password reset link sent',
+            ),
             actions: <Widget>[
               TextButton(
+                style: TextButton.styleFrom(backgroundColor: Colors.blueGrey),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  'OK',
+                  'Close',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
