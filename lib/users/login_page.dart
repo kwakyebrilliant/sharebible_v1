@@ -46,10 +46,19 @@ class _LoginPageState extends State<LoginPage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: const Text('Authentication Error'),
-            content: const Text("Email or Password incorrect"),
+            title: const Text(
+              textAlign: TextAlign.center,
+              'Authentication Error',
+            ),
+            content: const Text(
+              textAlign: TextAlign.center,
+              "Email or Password incorrect",
+            ),
             actions: <Widget>[
               TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                ),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
