@@ -121,12 +121,13 @@ class _ForgotPaawordState extends State<ForgotPaaword> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.share),
+                          Icon(Icons.share, color: Color(0xFFFFFFFF)),
                           Text(
                             'ShareBible',
                             style: GoogleFonts.inter(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
+                              color: Color(0xFFFFFFFF),
                             ),
                           ),
                         ],
@@ -165,10 +166,7 @@ class _ForgotPaawordState extends State<ForgotPaaword> {
                               child: Center(
                                 child: Icon(
                                   Icons.arrow_left_rounded,
-                                  color:
-                                      Theme.of(
-                                        context,
-                                      ).colorScheme.inversePrimary,
+                                  color: Color(0xFFFFFFFF),
                                   size: 28.0,
                                 ),
                               ),
@@ -186,10 +184,7 @@ class _ForgotPaawordState extends State<ForgotPaaword> {
                               style: GoogleFonts.inter(
                                 fontSize: 36.0,
                                 fontWeight: FontWeight.bold,
-                                color:
-                                    Theme.of(
-                                      context,
-                                    ).colorScheme.inversePrimary,
+                                color: Color(0xFFFFFFFF),
                               ),
                             ),
                           ),
@@ -221,10 +216,7 @@ class _ForgotPaawordState extends State<ForgotPaaword> {
                                       'When you forget your password, there is always a way to go about it.',
                                       style: GoogleFonts.inter(
                                         fontSize: 12.0,
-                                        color:
-                                            Theme.of(
-                                              context,
-                                            ).colorScheme.inversePrimary,
+                                        color: Color(0xFFFFFFFF),
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),

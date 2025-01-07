@@ -58,12 +58,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.share),
+                          Icon(Icons.share, color: Color(0xFFFFFFFF)),
                           Text(
                             'ShareBible',
                             style: GoogleFonts.inter(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
+                              color: Color(0xFFFFFFFF),
                             ),
                           ),
                         ],

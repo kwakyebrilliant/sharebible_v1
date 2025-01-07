@@ -104,12 +104,13 @@ class _LoginPageState extends State<LoginPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.share),
+                          Icon(Icons.share, color: Color(0xFFFFFFFF)),
                           Text(
                             'ShareBible',
                             style: GoogleFonts.inter(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
+                              color: Color(0xFFFFFFFF),
                             ),
                           ),
                         ],
@@ -134,10 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                               style: GoogleFonts.inter(
                                 fontSize: 36.0,
                                 fontWeight: FontWeight.bold,
-                                color:
-                                    Theme.of(
-                                      context,
-                                    ).colorScheme.inversePrimary,
+                                color: Color(0xFFFFFFFF),
                               ),
                             ),
                           ),
@@ -157,10 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                                     style: GoogleFonts.inter(
                                       fontSize: 32.0,
                                       fontWeight: FontWeight.w500,
-                                      color:
-                                          Theme.of(
-                                            context,
-                                          ).colorScheme.inversePrimary,
+                                      color: Color(0xFFFFFFFF),
                                     ),
                                   ),
                                   TextSpan(
@@ -168,10 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                                     style: GoogleFonts.inter(
                                       fontSize: 32.0,
                                       fontWeight: FontWeight.w500,
-                                      color:
-                                          Theme.of(
-                                            context,
-                                          ).colorScheme.inversePrimary,
+                                      color: Color(0xFFFFFFFF),
                                     ),
                                   ),
                                 ],
@@ -256,10 +248,7 @@ class _LoginPageState extends State<LoginPage> {
                                             'Forgot Password?',
                                             style: GoogleFonts.inter(
                                               fontSize: 12.0,
-                                              color:
-                                                  Theme.of(
-                                                    context,
-                                                  ).colorScheme.inversePrimary,
+                                              color: Color(0xFFFFFFFF),
                                               fontWeight: FontWeight.w500,
                                             ),
                                           ),
@@ -290,8 +279,11 @@ class _LoginPageState extends State<LoginPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        const Text(
+                                        Text(
                                           'Don\'t have an account yet?',
+                                          style: GoogleFonts.inter(
+                                            color: Color(0xFFFFFFFF),
+                                          ),
                                         ),
                                         GestureDetector(
                                           onTap: widget.showRegisterPage,
