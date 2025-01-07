@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sharebible/theme/theme_notifier.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -108,12 +109,70 @@ class _SettingScreenState extends State<SettingScreen> {
                       ],
                     ),
 
-                    // Container for logout icon wrapped in a GestureDetector
+                    // GestureDetector to call dialog
                     GestureDetector(
                       onTap: () {
-                        FirebaseAuth.instance.signOut();
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: Text(
+                                textAlign: TextAlign.center,
+                                'Are you sure you want to log out?',
+                              ),
+                              content: Text(
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.inter(fontSize: 12.0),
+                                "You can log in back with your credentials",
+                              ),
+                              actions: <Widget>[
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Text(
+                                        "Cancel",
+                                        style: GoogleFonts.inter(
+                                          color:
+                                              Theme.of(
+                                                context,
+                                              ).colorScheme.inversePrimary,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 10.0),
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        backgroundColor: Colors.red,
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          FirebaseAuth.instance.signOut();
+                                        },
+                                        child: Text(
+                                          'Log Out',
+                                          style: GoogleFonts.inter(
+                                            color:
+                                                Theme.of(
+                                                  context,
+                                                ).colorScheme.inversePrimary,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       },
-
                       // Container for logout icon
                       child: Container(
                         height: 25.0,
