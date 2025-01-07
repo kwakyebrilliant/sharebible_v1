@@ -63,10 +63,19 @@ class _RegisterPageState extends State<RegisterPage> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: const Text("Registration Successful"),
-              content: const Text("You have been successfully registered."),
+              title: const Text(
+                textAlign: TextAlign.center,
+                "Registration Successful",
+              ),
+              content: const Text(
+                textAlign: TextAlign.center,
+                "You have been successfully registered.",
+              ),
               actions: [
-                ElevatedButton(
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                  ),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -87,14 +96,15 @@ class _RegisterPageState extends State<RegisterPage> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: Text("Error"),
+              title: Text(textAlign: TextAlign.center, "Error"),
               content: Text(e.toString()),
               actions: [
-                ElevatedButton(
+                TextButton(
+                  style: TextButton.styleFrom(backgroundColor: Colors.red),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text("OK"),
+                  child: Text(textAlign: TextAlign.center, "Close"),
                 ),
               ],
             );
@@ -107,10 +117,17 @@ class _RegisterPageState extends State<RegisterPage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: const Text("Passwords Do Not Match"),
-            content: const Text("Please make sure your passwords match."),
+            title: const Text(
+              textAlign: TextAlign.center,
+              "Passwords Do Not Match",
+            ),
+            content: const Text(
+              textAlign: TextAlign.center,
+              "Please make sure your passwords match.",
+            ),
             actions: [
-              ElevatedButton(
+              TextButton(
+                style: TextButton.styleFrom(backgroundColor: Colors.blueGrey),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
