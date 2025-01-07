@@ -78,11 +78,16 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [Color(0xFF607D8B), Color(0xFF000000)],
+          ),
+          image: DecorationImage(
+            image: AssetImage("assets/images/background.png"),
+            fit: BoxFit.cover,
           ),
         ),
 
@@ -94,12 +99,18 @@ class _LoginPageState extends State<LoginPage> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 60.0),
-                  child: Text(
-                    'ShareBible',
-                    style: GoogleFonts.inter(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.share),
+                      Text(
+                        'ShareBible',
+                        style: GoogleFonts.inter(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -115,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       // Header text text here
                       Text(
-                        'Let\'s Sign you in.',
+                        'Welcome Back.',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.inter(
                           fontSize: 36.0,
@@ -135,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
                             style: GoogleFonts.inter(height: 1.1),
                             children: <TextSpan>[
                               TextSpan(
-                                text: 'Welcome Back. \n',
+                                text: 'Let\'s Sign you in \n',
                                 style: GoogleFonts.inter(
                                   fontSize: 32.0,
                                   fontWeight: FontWeight.w500,
@@ -162,106 +173,132 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       // Richtext ends here
 
-                      // Email textformfield here
-                      MyTextFormField(
-                        labelText: 'Email Address',
-                        icon: Icons.email_outlined,
-                        obscureText: false,
-                        controller: _emailController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Email is required';
-                          }
-                          return null;
-                        },
-                      ),
-
-                      // Password textformfield here
-                      MyTextFormField(
-                        labelText: 'Password',
-                        icon: Icons.lock_outline,
-                        suffixIcon: Icons.remove_red_eye_outlined,
-                        obscureText: true,
-                        controller: _passwordController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Password is required';
-                          }
-                          return null;
-                        },
-                      ),
-
-                      // Forgot password text in a padding
+                      // Padding wrapped around container for sign in items
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 30.0),
+                        padding: const EdgeInsets.only(top: 30.0),
 
-                        // Forgot password text wrapped in a row
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return const ForgotPaaword();
-                                    },
-                                  ),
-                                );
-                              },
+                        //  Container for sign in items
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          decoration: BoxDecoration(
+                            color: Colors.blueGrey.withValues(alpha: 0.2),
+                            borderRadius: BorderRadius.circular(20.0),
+                            border: Border.all(
+                              width: 1.0,
+                              color: Colors.blueGrey,
+                            ),
+                          ),
 
-                              // Forgot password text here
-                              child: Text(
-                                'Forgot Password?',
-                                style: GoogleFonts.inter(
-                                  fontSize: 12.0,
-                                  color:
-                                      Theme.of(
-                                        context,
-                                      ).colorScheme.inversePrimary,
-                                  fontWeight: FontWeight.w500,
+                          child: Column(
+                            children: [
+                              // Email textformfield here
+                              MyTextFormField(
+                                labelText: 'Email Address',
+                                icon: Icons.email_outlined,
+                                obscureText: false,
+                                controller: _emailController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Email is required';
+                                  }
+                                  return null;
+                                },
+                              ),
+
+                              // Password textformfield here
+                              MyTextFormField(
+                                labelText: 'Password',
+                                icon: Icons.lock_outline,
+                                suffixIcon: Icons.remove_red_eye_outlined,
+                                obscureText: true,
+                                controller: _passwordController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Password is required';
+                                  }
+                                  return null;
+                                },
+                              ),
+
+                              // Forgot password text in a padding
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 30.0,
+                                ),
+
+                                // Forgot password text wrapped in a row
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) {
+                                              return const ForgotPaaword();
+                                            },
+                                          ),
+                                        );
+                                      },
+
+                                      // Forgot password text here
+                                      child: Text(
+                                        'Forgot Password?',
+                                        style: GoogleFonts.inter(
+                                          fontSize: 12.0,
+                                          color:
+                                              Theme.of(
+                                                context,
+                                              ).colorScheme.inversePrimary,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
 
-                      // Login button centered
-                      Center(
-                        // Login button here
-                        child: LargeButton(
-                          text: 'Sign In',
-                          function: () {
-                            if (_formKey.currentState!.validate()) {
-                              signIn();
-                            }
-                          },
-                        ),
-                      ),
-
-                      // Register text wrapped in a padding
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 30.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text('Don\'t have an account yet?'),
-                            GestureDetector(
-                              onTap: widget.showRegisterPage,
-
-                              // Not a member? Register now
-                              child: const Text(
-                                ' Register Now',
-                                style: TextStyle(
-                                  fontSize: 12.0,
-                                  color: Colors.blueGrey,
-                                  fontWeight: FontWeight.bold,
+                              // Login button centered
+                              Center(
+                                // Login button here
+                                child: LargeButton(
+                                  text: 'Sign In',
+                                  function: () {
+                                    if (_formKey.currentState!.validate()) {
+                                      signIn();
+                                    }
+                                  },
                                 ),
                               ),
-                            ),
-                          ],
+
+                              // Register text wrapped in a padding
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 30.0,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Text('Don\'t have an account yet?'),
+                                    GestureDetector(
+                                      onTap: widget.showRegisterPage,
+
+                                      // Not a member? Register now
+                                      child: const Text(
+                                        ' Register Now',
+                                        style: TextStyle(
+                                          fontSize: 12.0,
+                                          color: Colors.blueGrey,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
