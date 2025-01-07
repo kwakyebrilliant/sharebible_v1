@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sharebible/screens/Settings/faq/faq_screen.dart';
 import 'package:sharebible/theme/theme_notifier.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -695,67 +696,80 @@ class _SettingScreenState extends State<SettingScreen> {
                               ),
                             ),
 
-                            // FAQs here
-                            Container(
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(
-                                    color:
-                                        Theme.of(
-                                          context,
-                                        ).colorScheme.primaryContainer,
-                                    width: 1.0,
+                            // FAQs here wrapped in a GestureDetector
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => const FaqScreen(),
+                                  ),
+                                );
+                              },
+
+                              // FAQs here
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).colorScheme.primaryContainer,
+                                      width: 1.0,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Row(
-                                        children: <Widget>[
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                              left: 20.0,
-                                              right: 10.0,
-                                            ),
-                                            child: Container(
-                                              height: 35.0,
-                                              width: 35.0,
-                                              decoration: BoxDecoration(
-                                                color: Colors.teal,
-                                                borderRadius:
-                                                    BorderRadius.circular(7.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        Row(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                left: 20.0,
+                                                right: 10.0,
                                               ),
-                                              child: const Icon(
-                                                Icons.question_answer_rounded,
-                                                color: Colors.white,
+                                              child: Container(
+                                                height: 35.0,
+                                                width: 35.0,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.teal,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                        7.0,
+                                                      ),
+                                                ),
+                                                child: const Icon(
+                                                  Icons.question_answer_rounded,
+                                                  color: Colors.white,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          const Text(
-                                            'FAQs',
-                                            style: TextStyle(
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.w700,
+                                            const Text(
+                                              'FAQs',
+                                              style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.w700,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      Icon(
-                                        Icons.arrow_right_rounded,
-                                        size: 50.0,
-                                        color:
-                                            Theme.of(
-                                              context,
-                                            ).colorScheme.inversePrimary,
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                                          ],
+                                        ),
+                                        Icon(
+                                          Icons.arrow_right_rounded,
+                                          size: 50.0,
+                                          color:
+                                              Theme.of(
+                                                context,
+                                              ).colorScheme.inversePrimary,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
 
