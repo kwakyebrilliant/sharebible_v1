@@ -47,9 +47,44 @@ class _AccountScreenState extends State<AccountScreen> {
         child: Form(
           child: Stack(
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [],
+              Positioned(
+                top: 0.0,
+                left: 0.0,
+                right: 0.0,
+                child: Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.inversePrimary.withValues(alpha: 0.2),
+                      borderRadius: BorderRadius.circular(100.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      // CircleAvatar for the profile
+                      child:
+                      //displays user's profile image
+                      Container(
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.blueGrey,
+                        ),
+                        child: Icon(
+                          Icons.person,
+                          size: 150.0,
+                          color: Theme.of(context).colorScheme.surface,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              Positioned(
+                top: 10.0,
+                left: 0.0,
+                right: 140.0,
+                child: Center(child: Text('data')),
               ),
 
               // Padding around align
