@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "607522825683",
+    "project_id": "sharebible-45b81",
+    "storage_bucket": "sharebible-45b81.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607522825683:android:8e57e90fa246dc9c8f7b26",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq4w9N0dELLTAhAyzEGueVJ35gt7YWUCI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
