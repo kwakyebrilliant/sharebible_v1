@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FaqScreen extends StatelessWidget {
   const FaqScreen({super.key});
@@ -33,7 +34,30 @@ class FaqScreen extends StatelessWidget {
       // AppBar ends here
 
       // Body here
-      body: Column(children: []),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Padding around top items
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Got questions text
+                Text(
+                  'Got Questions?',
+                  style: GoogleFonts.inter(
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
