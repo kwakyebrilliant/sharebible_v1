@@ -14,6 +14,9 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  //Variables
+  bool isAgreed = false;
+
   // Text controllers
   final _usernameController = TextEditingController();
   final _fullnameController = TextEditingController();
@@ -349,11 +352,22 @@ class _RegisterPageState extends State<RegisterPage> {
                                   Padding(
                                     padding: const EdgeInsets.only(top: 30.0),
                                     child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
                                       children: [
+                                        Checkbox(
+                                          checkColor:
+                                              Theme.of(
+                                                context,
+                                              ).colorScheme.inversePrimary,
+
+                                          value: isAgreed,
+                                          onChanged: (bool? value) {
+                                            setState(() {
+                                              isAgreed = value!;
+                                            });
+                                          },
+                                        ),
                                         RichText(
-                                          textAlign: TextAlign.center,
+                                          textAlign: TextAlign.left,
                                           text: TextSpan(
                                             style: GoogleFonts.inter(
                                               height: 1.1,
@@ -361,7 +375,18 @@ class _RegisterPageState extends State<RegisterPage> {
                                             children: <TextSpan>[
                                               TextSpan(
                                                 text:
-                                                    'By clicking "Sign Up" below, I agree to ShareBible \n',
+                                                    'By clicking "Sign Up" below, I agree to \n',
+                                                style: GoogleFonts.inter(
+                                                  fontSize: 12.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      Theme.of(
+                                                        context,
+                                                      ).colorScheme.primary,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'ShareBible ',
                                                 style: GoogleFonts.inter(
                                                   fontSize: 12.0,
                                                   fontWeight: FontWeight.w500,
@@ -380,7 +405,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                                 ),
                                               ),
                                               TextSpan(
-                                                text: 'and ',
+                                                text: 'and \n',
                                                 style: GoogleFonts.inter(
                                                   fontSize: 12.0,
                                                   fontWeight: FontWeight.w500,
