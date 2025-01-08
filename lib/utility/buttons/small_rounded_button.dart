@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class SmallRoundedButton extends StatelessWidget {
-  const SmallRoundedButton({super.key, this.function, this.icon});
+  const SmallRoundedButton({super.key, this.function, this.icon, this.size});
 
   final icon;
   final function;
+  final size;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class SmallRoundedButton extends StatelessWidget {
         ),
 
         //icon centered
-        child: Center(child: Icon(icon, color: Color(0xFFFFFFFF), size: 28.0)),
+        child: Center(child: Icon(icon, color: Color(0xFFFFFFFF), size: size)),
       ),
     );
   }

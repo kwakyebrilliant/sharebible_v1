@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sharebible/utility/buttons/large_button.dart';
+import 'package:sharebible/utility/buttons/small_rounded_button.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -47,6 +48,7 @@ class _AccountScreenState extends State<AccountScreen> {
         child: Form(
           child: Stack(
             children: [
+              // Positioned for displaying user profile
               Positioned(
                 top: 0.0,
                 left: 0.0,
@@ -80,11 +82,32 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
 
+              // Positioned for taking picture for user profile
               Positioned(
                 top: 10.0,
                 left: 0.0,
                 right: 140.0,
-                child: Center(child: Text('data')),
+                child: Center(
+                  child: SmallRoundedButton(
+                    function: () {},
+                    icon: Icons.photo_camera_rounded,
+                    size: 20.0,
+                  ),
+                ),
+              ),
+
+              // Positioned for uploading picture for user profile
+              Positioned(
+                top: 10.0,
+                left: 140.0,
+                right: 0.0,
+                child: Center(
+                  child: SmallRoundedButton(
+                    function: () {},
+                    icon: Icons.photo,
+                    size: 20.0,
+                  ),
+                ),
               ),
 
               // Padding around align
