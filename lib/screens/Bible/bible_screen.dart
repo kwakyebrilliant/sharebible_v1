@@ -169,7 +169,9 @@ class _BibleScreenState extends State<BibleScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        backgroundColor: Theme.of(
+          context,
+        ).colorScheme.secondary.withValues(alpha: 0.4),
         elevation: 0,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -298,7 +300,9 @@ class _BibleScreenState extends State<BibleScreen> {
               width: MediaQuery.of(context).size.width - 180.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
-                color: Theme.of(context).colorScheme.secondary,
+                color: Theme.of(
+                  context,
+                ).colorScheme.secondary.withValues(alpha: 0.4),
               ),
               child: TextField(
                 decoration: InputDecoration(
@@ -306,7 +310,9 @@ class _BibleScreenState extends State<BibleScreen> {
                   hintText: 'Find book...',
                   contentPadding: const EdgeInsets.all(10.0),
                   border: InputBorder.none,
-                  fillColor: Theme.of(context).colorScheme.secondary,
+                  fillColor: Theme.of(
+                    context,
+                  ).colorScheme.secondary.withValues(alpha: 0.4),
                   prefixIcon: Padding(
                     padding: const EdgeInsets.only(right: 8.0, left: 8.0),
                     child: Icon(

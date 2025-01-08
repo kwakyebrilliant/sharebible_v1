@@ -10,7 +10,9 @@ class FaqScreen extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.surface,
       // AppBar starts here
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        backgroundColor: Theme.of(
+          context,
+        ).colorScheme.secondary.withValues(alpha: 0.4),
         elevation: 0,
         title: Text(
           'FAQs',
