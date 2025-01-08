@@ -56,6 +56,7 @@ class _RegisterPageState extends State<RegisterPage> {
           _usernameController.text.trim(),
           _fullnameController.text.trim(),
           _emailController.text.trim(),
+          isAgreed,
         );
 
         // Registration successful, pop the loading circle
@@ -148,7 +149,12 @@ class _RegisterPageState extends State<RegisterPage> {
     }
   }
 
-  Future addUserDetails(String userName, String fullName, String email) async {
+  Future addUserDetails(
+    String userName,
+    String fullName,
+    String email,
+    bool isAgreed,
+  ) async {
     try {
       // Get the currently logged in user
       User? user = FirebaseAuth.instance.currentUser;
@@ -165,6 +171,7 @@ class _RegisterPageState extends State<RegisterPage> {
           'user name': userName,
           'full name': fullName,
           'email': email,
+          'isAgreed': isAgreed,
         });
       }
     } catch (e) {
@@ -351,82 +358,128 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 30.0),
-                                    child: Row(
-                                      children: [
-                                        Checkbox(
-                                          checkColor:
-                                              Theme.of(
-                                                context,
-                                              ).colorScheme.inversePrimary,
-
-                                          value: isAgreed,
-                                          onChanged: (bool? value) {
-                                            setState(() {
-                                              isAgreed = value!;
-                                            });
-                                          },
-                                        ),
-                                        RichText(
-                                          textAlign: TextAlign.left,
-                                          text: TextSpan(
-                                            style: GoogleFonts.inter(
-                                              height: 1.1,
+                                    child: FormField<bool>(
+                                      initialValue: isAgreed,
+                                      validator: (value) {
+                                        if (value != true) {
+                                          return 'You must agree to the Terms & Conditions and Privacy Policy';
+                                        }
+                                        return null;
+                                      },
+                                      builder: (formFieldState) {
+                                        return Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Checkbox(
+                                                  checkColor:
+                                                      Theme.of(context)
+                                                          .colorScheme
+                                                          .inversePrimary,
+                                                  value: formFieldState.value,
+                                                  onChanged: (bool? value) {
+                                                    setState(() {
+                                                      isAgreed = value!;
+                                                      formFieldState.didChange(
+                                                        value,
+                                                      );
+                                                    });
+                                                  },
+                                                ),
+                                                RichText(
+                                                  textAlign: TextAlign.left,
+                                                  text: TextSpan(
+                                                    style: GoogleFonts.inter(
+                                                      height: 1.1,
+                                                    ),
+                                                    children: <TextSpan>[
+                                                      TextSpan(
+                                                        text:
+                                                            'By clicking "Sign Up" below, I agree to \n',
+                                                        style: GoogleFonts.inter(
+                                                          fontSize: 12.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color:
+                                                              Theme.of(context)
+                                                                  .colorScheme
+                                                                  .primary,
+                                                        ),
+                                                      ),
+                                                      TextSpan(
+                                                        text: 'ShareBible ',
+                                                        style: GoogleFonts.inter(
+                                                          fontSize: 12.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color:
+                                                              Theme.of(context)
+                                                                  .colorScheme
+                                                                  .primary,
+                                                        ),
+                                                      ),
+                                                      TextSpan(
+                                                        text:
+                                                            'Terms & Conditions ',
+                                                        style:
+                                                            GoogleFonts.inter(
+                                                              fontSize: 12.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              color:
+                                                                  Colors
+                                                                      .blueGrey,
+                                                            ),
+                                                      ),
+                                                      TextSpan(
+                                                        text: 'and \n',
+                                                        style: GoogleFonts.inter(
+                                                          fontSize: 12.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color:
+                                                              Theme.of(context)
+                                                                  .colorScheme
+                                                                  .primary,
+                                                        ),
+                                                      ),
+                                                      TextSpan(
+                                                        text: 'Privacy Policy',
+                                                        style:
+                                                            GoogleFonts.inter(
+                                                              fontSize: 12.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              color:
+                                                                  Colors
+                                                                      .blueGrey,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                            children: <TextSpan>[
-                                              TextSpan(
-                                                text:
-                                                    'By clicking "Sign Up" below, I agree to \n',
-                                                style: GoogleFonts.inter(
-                                                  fontSize: 12.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  color:
-                                                      Theme.of(
-                                                        context,
-                                                      ).colorScheme.primary,
+                                            if (formFieldState.hasError)
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                  top: 5.0,
+                                                ),
+                                                child: Text(
+                                                  formFieldState.errorText!,
+                                                  style: TextStyle(
+                                                    color: Colors.red,
+                                                    fontSize: 12.0,
+                                                  ),
                                                 ),
                                               ),
-                                              TextSpan(
-                                                text: 'ShareBible ',
-                                                style: GoogleFonts.inter(
-                                                  fontSize: 12.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  color:
-                                                      Theme.of(
-                                                        context,
-                                                      ).colorScheme.primary,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: 'Terms & Conditions ',
-                                                style: GoogleFonts.inter(
-                                                  fontSize: 12.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.blueGrey,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: 'and \n',
-                                                style: GoogleFonts.inter(
-                                                  fontSize: 12.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  color:
-                                                      Theme.of(
-                                                        context,
-                                                      ).colorScheme.primary,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: 'Privacy Policy',
-                                                style: GoogleFonts.inter(
-                                                  fontSize: 12.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.blueGrey,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
+                                          ],
+                                        );
+                                      },
                                     ),
                                   ),
                                   Padding(
