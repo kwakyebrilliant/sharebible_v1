@@ -211,7 +211,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             ],
                           ),
 
-                          // Padding around row for streak
+                          // Padding around row for day's streak
                           Padding(
                             padding: const EdgeInsets.only(top: 12.0),
 
