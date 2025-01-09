@@ -13,6 +13,16 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
+  final List<String> daysOfWeek = const [
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat',
+    'Sun',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<DocumentSnapshot>(
@@ -124,6 +134,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                   ),
 
+                  // Positioned for a part of user's detail
                   Positioned(
                     top: 170.0,
                     left: 0.0,
@@ -191,13 +202,62 @@ class _AccountScreenState extends State<AccountScreen> {
                                 // Centered edit icon
                                 child: Center(
                                   child: Icon(
-                                    Icons.edit_document,
+                                    Icons.edit,
                                     color: Color(0xFFFFFFFF),
                                     size: 24.0,
                                   ),
                                 ),
                               ),
                             ],
+                          ),
+
+                          // Padding around row for streak
+                          Padding(
+                            padding: const EdgeInsets.only(top: 12.0),
+
+                            // Row for streak
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  height: 40.0,
+                                  width: MediaQuery.of(context).size.width - 82,
+                                  child: GridView.builder(
+                                    gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 7,
+                                        ),
+                                    itemCount: daysOfWeek.length,
+                                    itemBuilder: (context, index) {
+                                      return Column(
+                                        children: [
+                                          Text(
+                                            daysOfWeek[index],
+                                            style: const TextStyle(
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color(0xFFF7F7FA),
+                                            ),
+                                          ),
+                                          const SizedBox(height: 4.0),
+                                          Container(
+                                            width: 20.0,
+                                            height: 20.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  Theme.of(
+                                                    context,
+                                                  ).colorScheme.surface,
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0),
+                                            ),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
